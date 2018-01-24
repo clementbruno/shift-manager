@@ -1,0 +1,18 @@
+<div class="container">
+  <div class="row">
+  <h2>Please update informations using the below form:</h2>
+  <div class="form-inputs">
+    <div class="col-sm-offset-4 col-sm-4">
+      <%= simple_form_for(@worker) do |f| %>
+        <%= f.error_notification %>
+          <%= f.input :name %>
+          <%= f.input :status, collection: ["Medic", "Interne", "Interim"] %>
+          <div class="form-actions">
+            <%= f.button :submit %>
+          </div>
+        <%= link_to 'Back', worker_path(@worker), class: "btn btn-primary" %>
+      <% end %>
+    </div>
+    </div>
+  </div>
+</div>

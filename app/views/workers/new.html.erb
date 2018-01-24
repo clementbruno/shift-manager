@@ -1,0 +1,23 @@
+<div class="container padded">
+  <div class="row">
+    <div class="col-xs-12 col-sm-8 col-sm-offset-2 text-center">
+      <h1>Create a new worker</h1>
+      <p>Please, filled the following informations:</p>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-offset-4 col-sm-4">
+      <%= simple_form_for(@worker) do |f| %>
+        <%= f.error_notification %>
+          <div class="form-inputs">
+          <%= f.input :name, label_input:"Please write the name of the worker you wish to add" %>
+          <%= f.input :status, collection: ["Medic", "Interne", "Interim"] %>
+          <div class="form-actions">
+            <%= f.button :submit %>
+          </div>
+          <%= link_to 'Back', workers_path, class: "btn btn-primary" %>
+      <% end %>
+      </div>
+    </div>
+  </div>
+</div>

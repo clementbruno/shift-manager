@@ -11,6 +11,7 @@ class ShiftsController < ApplicationController
 
   def new
     @shift = Shift.new
+    @workers = Worker.all
   end
 
   def edit

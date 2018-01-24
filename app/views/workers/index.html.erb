@@ -1,0 +1,16 @@
+<div class="container padded">
+  <% @workers.each do |worker| %>
+  <div class="row">
+    <div class="col-xs-12 col-sm-8 col-sm-offset-2 text-center">
+      <h1>Worker: <%= worker.name %></h1>
+      <p>Status: <%= worker.status %></p>
+    </div>
+    <div class="controls">
+      <%= link_to "Update information", edit_worker_path(worker) %>
+      <%= link_to 'Delete worker', worker_path(worker), method: :delete %>
+    </div>
+  </div>
+  <% end %>
+  <%= link_to "Create new worker", new_worker_path %>
+  <%= link_to "Home", root_path %>
+</div>
