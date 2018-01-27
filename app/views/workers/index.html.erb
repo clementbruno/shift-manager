@@ -2,8 +2,10 @@
   <% @workers.each do |worker| %>
   <div class="row">
     <div class="col-xs-12 col-sm-8 col-sm-offset-2 text-center">
-      <h1>Worker: <%= worker.name %></h1>
-      <p>Status: <%= worker.status %></p>
+      <%= link_to worker_path(worker) do %>
+        <h1>Worker: <%= worker.name %></h1>
+      <% end %>
+        <p>Status: <%= worker.status %></p>
     </div>
     <div class="controls">
       <%= link_to "Update information", edit_worker_path(worker) %>

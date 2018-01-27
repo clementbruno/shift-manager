@@ -1,0 +1,20 @@
+<div class="container padded">
+  <div id="calendar">
+  <!-- Shifts to integrate here -->
+    <%= month_calendar events: @shifts do |date, shifts| %>
+      <%= date.strftime("%b %d") %>
+      <% shifts.each do |shift| %>
+        <div>
+          <p><%= shift.worker.name %> has a shift</p>
+          <%= link_to "Update", edit_shift_path(shift) %>
+          <%= link_to "Delete", shift_path(shift), method: :delete %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+  <%= link_to "Create new shift", new_shift_path %>
+  <%= link_to "Home", root_path %>
+</div>
+
+
+

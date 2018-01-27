@@ -1,0 +1,23 @@
+<div class="container padded">
+  <div class="row">
+    <div class="col-xs-12 col-sm-8 col-sm-offset-2 text-center">
+      <h1>Update Shift</h1>
+      <p>Please, filled the following informations:</p>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-offset-4 col-sm-4">
+      <%= simple_form_for(@shift) do |f| %>
+        <%= f.error_notification %>
+          <div class="form-inputs">
+          <%= f.input :date, label_input:"Date" %>
+          <%= f.input :worker_id, collection: @workers %>
+          <div class="form-actions" >
+            <%= f.button :submit %>
+          </div>
+          <%= link_to 'Back', worker_path(@worker), class: "btn btn-primary" %>
+      <% end %>
+      </div>
+    </div>
+  </div>
+</div>

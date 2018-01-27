@@ -6,21 +6,28 @@
     </div>
   </div>
   <div class="row">
-    <div class="controls">
+    <div class="controls col-xs-6">
       <%= link_to "Update information", edit_worker_path(@worker) %>
       <%= link_to 'Delete worker', worker_path(@worker), method: :delete %>
+    </div>
+    <div class="controls col-xs-6">
+      <%= link_to "Create Shift", new_worker_shift_path(@worker) %>
     </div>
   </div>
   <br>
   <div id="calendar">
   <!-- Shifts to integrate here -->
     <%= month_calendar events: @worker_shifts do |date, shifts| %>
-      <%= date %>
+      <%= date.strftime("%b %d") %>
       <% shifts.each do |shift| %>
         <div>
           <p><%= @worker.name %> has a shift</p>
+          <%= link_to "Update", edit_worker_shift_path(@worker, shift) %>
+          <%= link_to "Delete", worker_shift_path(@worker, shift), method: :delete %>
         </div>
       <% end %>
     <% end %>
   </div>
 </div>
+
+

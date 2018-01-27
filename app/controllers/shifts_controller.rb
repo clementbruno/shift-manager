@@ -1,12 +1,8 @@
 class ShiftsController < ApplicationController
-  before_action :set_shift, only: [ :show, :edit, :update, :destroy ]
+  before_action :set_shift, only: [ :edit, :update, :destroy ]
 
   def index
     @shifts = Shift.all
-  end
-
-  def show
-    @worker = @shift.worker
   end
 
   def new
@@ -14,31 +10,36 @@ class ShiftsController < ApplicationController
     @workers = Worker.all
   end
 
-  def edit
-  end
-
   def create
     @shift = Shift.new(shift_params)
+    @worker = @shift.worker
     if @shift.save
       flash[:notice] = 'Your shift was successfully created'
-      redirect_to shift_path(@shift)
+      redirect_to worker_path(@worker)
     else
       render :new
     end
   end
 
+  def edit
+    @worker = @shift.worker
+    @workers = Worker.all
+  end
+
   def update
+    @worker = @shift.worker
     if @shift.update(shift_params)
       flash[:notice] = 'Your shift was successfully updated'
-      redirect_to shift_path(@shift)
+      redirect_to worker_path(@worker)
     else
       render :edit
     end
   end
 
   def destroy
+    @worker = @shift.worker
     @shift.delete
-    redirect_to shifts_path
+    redirect_to worker_path(@worker)
   end
 
   private
