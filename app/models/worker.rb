@@ -1,5 +1,5 @@
 class Worker < ApplicationRecord
-  has_many :shifts
+  has_many :shifts, dependent: :destroy
 
   validates :status,
     :inclusion  => { :in => [ 'Medic', 'Interne', 'Interim' ],

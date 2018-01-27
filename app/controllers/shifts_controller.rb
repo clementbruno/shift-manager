@@ -6,16 +6,18 @@ class ShiftsController < ApplicationController
   end
 
   def new
+    # @worker = Worker.find(params[:worker_id])
     @shift = Shift.new
     @workers = Worker.all
   end
 
   def create
+    @workers = Worker.all
     @shift = Shift.new(shift_params)
     @worker = @shift.worker
     if @shift.save
       flash[:notice] = 'Your shift was successfully created'
-      redirect_to worker_path(@worker)
+      redirect_to shifts_path
     else
       render :new
     end
@@ -30,7 +32,7 @@ class ShiftsController < ApplicationController
     @worker = @shift.worker
     if @shift.update(shift_params)
       flash[:notice] = 'Your shift was successfully updated'
-      redirect_to worker_path(@worker)
+      redirect_to shifts_path
     else
       render :edit
     end
@@ -38,8 +40,8 @@ class ShiftsController < ApplicationController
 
   def destroy
     @worker = @shift.worker
-    @shift.delete
-    redirect_to worker_path(@worker)
+    @shift.destroy
+    redirect_to shifts_path
   end
 
   private

@@ -10,7 +10,7 @@
       <%= simple_form_for(@shift) do |f| %>
         <%= f.error_notification %>
           <div class="form-inputs">
-          <%= f.input :date, discard_hour: true, discard_minutes: true,
+          <%= f.input :date, start_year: Date.today.year, end_year: Date.today.year + 5, discard_hour: true, discard_minutes: true,
                               order: [:month, :year, :day] %>
           <%= f.input :worker_id, collection: @workers %>
           <div class="form-actions" >
