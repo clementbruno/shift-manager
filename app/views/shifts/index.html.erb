@@ -1,19 +1,22 @@
-<div class="container padded">
-  <div id="calendar">
+<div class="container">
+  <div class="controls">
+    <button class="btn btn-info"><%= link_to "See all workers", workers_path %></button>
+    <button class="btn btn-primary"><%= link_to "Create a worker", new_worker_path %></button>
+    <button class="btn btn-success"><%= link_to "Create a shift", new_shift_path %></button>
+  </div>
+  <div class="calendar">
   <!-- Shifts to integrate here -->
     <%= month_calendar events: @shifts do |date, shifts| %>
       <%= date.strftime("%b %d") %>
       <% shifts.each do |shift| %>
-        <div>
-          <p><%= shift.worker.name %> has a shift</p>
-          <%= link_to "Update", edit_shift_path(shift) %>
-          <%= link_to "Delete", shift_path(shift), method: :delete %>
+        <div class="event-info">
+          <p>Shift: <%= shift.worker.name.capitalize %></p>
+          <button class="btn btn-update"><%= link_to "Update", edit_shift_path(shift) %></button><br>
+          <button class="btn btn-destroy"><%= link_to "Delete", shift_path(shift), method: :delete %></button>
         </div>
       <% end %>
     <% end %>
   </div>
-  <%= link_to "See all workers", workers_path %>
-  <%= link_to "Create a shift", new_shift_path %>
 </div>
 
 

@@ -1,18 +1,26 @@
-<div class="container padded">
-  <% @workers.each do |worker| %>
-  <div class="row">
-    <div class="col-xs-12 col-sm-8 col-sm-offset-2 text-center">
-      <%= link_to worker_path(worker) do %>
-        <h1>Worker: <%= worker.name %></h1>
-      <% end %>
-        <p>Status: <%= worker.status %></p>
-    </div>
-    <div class="controls">
-      <%= link_to "Update information", edit_worker_path(worker) %>
-      <%= link_to 'Delete worker', worker_path(worker), method: :delete %>
-    </div>
+<div>
+  <div class="controls-top">
+    <button class="btn btn-primary"><%= link_to "Create new worker", new_worker_path %></button>
+    <button class="btn btn-info"><%= link_to "See all shifts", shifts_path %></button>
   </div>
+  <% @workers.each do |worker| %>
+    <div class="worker-link">
+      <%= link_to worker_path(worker) do %>
+      <div class="row">
+        <div class="col-xs-12 col-sm-8 col-sm-offset-2 text-center">
+            <h1><%= worker.name.capitalize %></h1>
+            <p><em>Status: <%= worker.status %></em></p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-12 col-sm-8 col-sm-offset-2 text-center">
+          <div class="worker-controls text-center">
+            <button class="btn btn-info"><%= link_to "Update information", edit_worker_path(worker) %></button>
+            <button class="btn btn-danger"><%= link_to 'Delete worker', worker_path(worker), method: :delete %></button>
+          </div>
+        </div>
+      </div>
+    <% end %>
+    </div>
   <% end %>
-  <%= link_to "Create new worker", new_worker_path %>
-  <%= link_to "Home", root_path %>
 </div>

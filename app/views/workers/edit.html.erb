@@ -6,12 +6,13 @@
       <%= simple_form_for(@worker) do |f| %>
         <%= f.error_notification %>
           <%= f.input :name %>
-          <%= f.input :status, collection: ["Medic", "Interne", "Interim"] %>
+          <%= f.input :status, collection: ["Medic", "Interne", "Interim"], required: true %>
           <div class="form-actions">
             <%= f.button :submit %>
           </div>
-        <%= link_to 'Back', worker_path(@worker), class: "btn btn-primary" %>
       <% end %>
+      <br>
+      <%= link_to 'Back', worker_path(@worker), class: "btn btn-primary" %>
     </div>
     </div>
   </div>

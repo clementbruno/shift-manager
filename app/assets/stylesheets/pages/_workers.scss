@@ -1,0 +1,29 @@
+
+.controls-top {
+  margin: 20px;
+}
+
+.controls-top .btn {
+  width: 150px;
+}
+
+.worker-link {
+  background-color: RGBA(188, 188, 188, 1.00);
+  margin: 5px 0;
+  &:hover {
+    opacity: 0.8;
+    border: 2px solid RGBA(110, 0, 255, 1.00);
+  }
+}
+
+.worker-link a {
+  color: RGBA(8, 46, 80, 1.00);
+}
+
+.worker-link .btn a {
+  color: white;
+}
+
+.worker-controls button {
+  margin: 20px;
+}

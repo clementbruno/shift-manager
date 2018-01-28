@@ -1,0 +1,67 @@
+.simple-calendar {
+  .day {
+    height: 130px;
+  }
+
+  // .wday-0 {}
+  // .wday-1 {}
+  // .wday-2 {}
+  // .wday-3 {}
+  // .wday-4 {}
+  // .wday-5 {}
+  // .wday-6 {}
+
+  // .today {}
+  // .past {}
+  // .future {}
+
+  // .start-date {}
+
+  .prev-month {
+    color: RGBA(0, 82, 152, 1.00);
+  }
+  .next-month {
+    color:green;
+  }
+//   .current-month {}
+
+  .has-events {
+    border: 2px solid RGBA(110, 0, 255, 1.00);
+  }
+}
+
+.calendar {
+  margin-top: 20px;
+}
+
+.event-info > p {
+  font-weight: bold;
+  color: red;
+  font-size: 16px;
+}
+
+.btn-update {
+  width: 100px;
+  background-color: RGBA(255, 191, 45, 1.00);
+}
+
+.btn-destroy {
+  margin-top: 3px;
+  width: 100px;
+  background-color: RGBA(148, 0, 0, 1.00);
+}
+
+.btn a {
+  color: white;
+  font-size: 14px;
+  &:hover {
+    text-decoration: none;
+  }
+}
+
+.controls {
+  margin: 20px 0;
+  display: flex;
+  justify-content: space-between;
+  width: 400px;
+}

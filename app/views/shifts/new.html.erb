@@ -12,12 +12,13 @@
           <div class="form-inputs">
           <%= f.input :date, start_year: Date.today.year, end_year: Date.today.year + 5, discard_hour: true, discard_minutes: true,
                               order: [:month, :year, :day] %>
-          <%= f.input :worker_id, collection: @workers %>
+          <%= f.input :worker_id, collection: @workers, required: true %>
           <div class="form-actions" >
             <%= f.button :submit %>
           </div>
-          <%= link_to 'Back to all shifts', shifts_path, class: "btn btn-primary" %>
       <% end %>
+      <br>
+      <%= link_to 'Back to all shifts', shifts_path, class: "btn btn-primary" %>
       </div>
     </div>
   </div>

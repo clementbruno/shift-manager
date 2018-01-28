@@ -1,39 +1,30 @@
-<div class="container padded">
+<div class="container">
   <div class="row">
-    <div class="col-xs-12 col-sm-8 col-sm-offset-2 text-center">
-      <h1>Worker: <%= @worker.name %></h1>
-      <p>Status: <%= @worker.status %></p>
+    <div>
+      <h1>Name: <span class="name-detail"><%= @worker.name.capitalize %></span></h1>
+      <p><em>Status: <span class="name-detail"><%= @worker.status %></em></span></p>
     </div>
-  </div>
-  <div class="row">
-    <div class="controls col-xs-6">
-      <%= link_to "Update information", edit_worker_path(@worker) %>
-      <%= link_to 'Delete worker', worker_path(@worker), method: :delete %>
-    </div>
-    <div class="controls col-xs-6">
-      <!-- See if it is relevant to be able to create shift from worker's show -->
-      <!-- <%= link_to "Create Shift", new_shift_path %> -->
+    <div class="worker-actions">
+      <button class="btn btn-info">
+        <%= link_to "Update information", edit_worker_path(@worker) %>
+      </button>
+      <button class="btn btn-danger">
+        <%= link_to 'Delete worker', worker_path(@worker), method: :delete %>
+      </button>
     </div>
   </div>
   <br>
-  <div id="calendar">
-  <!-- Shifts to integrate here -->
+  <h3 class="worker-name text-center"><%= @worker.name.capitalize %> Shifts Planning</h3>
+  <div class="calendar">
     <%= month_calendar events: @worker_shifts do |date, shifts| %>
       <%= date.strftime("%b %d") %>
       <% shifts.each do |shift| %>
         <div>
-          <p><%= @worker.name %> has a shift</p>
-          <%= link_to "Update", edit_worker_shift_path(@worker, shift) %>
-          <%= link_to "Delete", worker_shift_path(@worker, shift), method: :delete %>
+          <p>Shift: <%= @worker.name.capitalize %></p>
+          <button class="btn btn-update"><%= link_to "Update", edit_worker_shift_path(@worker, shift) %></button>
+          <button class="btn btn-destroy"><%= link_to "Delete", worker_shift_path(@worker, shift), method: :delete %></button>
         </div>
       <% end %>
     <% end %>
   </div>
-
-  <div class="controls">
-    <%= link_to "See all shifts", shifts_path %>
-    <%= link_to "See all workers", workers_path %>
-  </div>
 </div>
-
-

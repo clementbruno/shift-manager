@@ -1,0 +1,21 @@
+.worker-name {
+  margin: auto;
+  width: 500px;
+  border: 2px solid RGBA(110, 0, 255, 1.00);
+}
+
+.worker-actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 310px;
+}
+
+.worker-actions .btn {
+  width: 150px;
+  height: 40px;
+}
+
+.name-detail {
+  color: RGBA(110, 0, 255, 1.00);
+}
