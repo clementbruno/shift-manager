@@ -6,7 +6,6 @@ class ShiftsController < ApplicationController
   end
 
   def new
-    # @worker = Worker.find(params[:worker_id])
     @shift = Shift.new
     @workers = Worker.all
   end
@@ -41,6 +40,7 @@ class ShiftsController < ApplicationController
   def destroy
     @worker = @shift.worker
     @shift.destroy
+    flash[:notice] = 'Your shift was successfully deleted'
     redirect_to shifts_path
   end
 

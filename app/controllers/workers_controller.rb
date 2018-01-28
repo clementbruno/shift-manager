@@ -37,6 +37,7 @@ class WorkersController < ApplicationController
 
   def destroy
     @worker.destroy
+    flash[:notice] = 'Your worker was successfully deleted'
     redirect_to workers_path
   end
 

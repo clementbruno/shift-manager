@@ -1,6 +1,8 @@
 .worker-name {
   margin: auto;
   width: 500px;
+  color: RGBA(110, 0, 255, 1.00);
+  border-radius: 4px;
   border: 2px solid RGBA(110, 0, 255, 1.00);
 }
 
@@ -18,4 +20,8 @@
 
 .name-detail {
   color: RGBA(110, 0, 255, 1.00);
+}
+
+.calendar-title {
+  margin: 40px 0 30px 0;
 }

@@ -14,7 +14,10 @@
     </div>
   </div>
   <br>
-  <h3 class="worker-name text-center"><%= @worker.name.capitalize %> Shifts Planning</h3>
+  <div class="calendar-title">
+    <h3 class="worker-name text-center"><%= @worker.name.capitalize %> Shifts Planning</h3>
+  </div>
+    <button class="btn btn-success"><%= link_to "Create a shift", new_worker_shift_path(@worker) %></button>
   <div class="calendar">
     <%= month_calendar events: @worker_shifts do |date, shifts| %>
       <%= date.strftime("%b %d") %>
